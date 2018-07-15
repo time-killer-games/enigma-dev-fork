@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Universal_System/Extensions/BulletDynamics/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Universal_System/Extensions/BulletDynamics/*.cpp)
 
 ifeq ($(PLATFORM), xlib)
 	override CFLAGS += $(shell pkg-config --cflags bullet)

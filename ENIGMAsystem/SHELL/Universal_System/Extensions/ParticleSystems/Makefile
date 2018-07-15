@@ -1,2 +1,2 @@
-SOURCES += $(wildcard Universal_System/Extensions/ParticleSystems/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Universal_System/Extensions/ParticleSystems/*.cpp)
 

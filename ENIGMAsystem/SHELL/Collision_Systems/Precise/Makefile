@@ -1,1 +1,1 @@
-SOURCES += $(wildcard Collision_Systems/Precise/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Collision_Systems/Precise/*.cpp)

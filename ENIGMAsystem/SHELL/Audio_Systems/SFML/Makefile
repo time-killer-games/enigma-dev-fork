@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Audio_Systems/SFML/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Audio_Systems/SFML/*.cpp)
 
 ifeq ($(PLATFORM), Win32)
 	override LDLIBS += -lsfml-audio-s -lsfml-system-s -lOpenAL32-static -lsndfile -ldsound -lwinmm -lole32

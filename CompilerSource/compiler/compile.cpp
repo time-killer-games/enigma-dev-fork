@@ -605,8 +605,11 @@ wto << "namespace enigma_user {\nstring shader_get_name(int i) {\n switch (i) {\
   idpr("Starting compile (This may take a while...)", 30);
 
   string make = compilerInfo.make_vars["MAKEFLAGS"];
-
-  make += "Game ";
+  
+  if (compilerInfo.target_platform == "Android")
+    make += "AndroidGame ";
+  else
+    make += "Game ";
   make += "WORKDIR=\"" + eobjs_directory + "\" ";
   make += "CODEGEN=\"" + codegen_directory + "\" ";
   make += mode == emode_debug? "GMODE=\"Debug\"" : mode == emode_design? "GMODE=\"Design\"" : mode == emode_compile?"GMODE=\"Compile\"" : "GMODE=\"Run\"";
@@ -679,10 +682,6 @@ wto << "namespace enigma_user {\nstring shader_get_name(int i) {\n switch (i) {\
     have an option in the config file to pass them to some resource
     linker sometime in the future.
   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/
-
-  #ifdef OS_ANDROID
-    "Platforms/Android/EnigmaAndroidGame/libs/armeabi/libndkEnigmaGame.so";
-  #endif
 
   FILE *gameModule;
   int resourceblock_start = 0;

@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Audio_Systems/OpenAL/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Audio_Systems/OpenAL/*.cpp)
 
 ifeq ($(TARGET-PLATFORM), Linux)
 	override LDLIBS += -lopenal -lalure -lvorbisfile -lvorbis -ldumb
@@ -7,6 +7,6 @@ else ifeq ($(TARGET-PLATFORM), Windows)
 	override LDLIBS += -lALURE32-static -lopenal.dll -lvorbisfile -lvorbis -logg -lFLAC -lsndfile -lmodplug -lmpg123 -lole32 -lwinmm
 else ifeq ($(TARGET-PLATFORM), MacOSX)
 	override LDLIBS += -framework OpenAL
-	SOURCES += $(wildcard ../additional/alure/enigma_alure/*.cpp)
+	SOURCES += $(wildcard $(ESHELL)../additional/alure/enigma_alure/*.cpp)
 	include $(addsuffix /Makefile, ../additional/alure/Codecs)
 endif

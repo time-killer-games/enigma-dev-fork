@@ -23,7 +23,7 @@
 
 #include "Universal_System/roomsystem.h" // room_caption, update_mouse_variables
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #include "glad.h"
 
