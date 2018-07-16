@@ -1,4 +1,4 @@
-Executable : /opt/android-ndk/ndk-build
+Executable : /home/greg/.android/ndk-bundle/ndk-build
 arguments : 
 NDK_PROJECT_PATH=null
 APP_BUILD_SCRIPT=/home/greg/enigma-dev/android-project/app/jni/Android.mk

@@ -4,18 +4,18 @@
     "/home/greg/enigma-dev/android-project/app/jni/Application.mk"
   ],
   "cleanCommands": [
-    "/opt/android-ndk/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 clean"
+    "/home/greg/.android/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 clean"
   ],
   "libraries": {
     "SDL2-debug-x86": {
       "artifactName": "SDL2",
-      "buildCommand": "/opt/android-ndk/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 /home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/x86/libSDL2.so",
+      "buildCommand": "/home/greg/.android/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 /home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/x86/libSDL2.so",
       "abi": "x86",
       "output": "/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/x86/libSDL2.so"
     },
     "main-debug-x86": {
       "artifactName": "main",
-      "buildCommand": "/opt/android-ndk/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 /home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/x86/libmain.so",
+      "buildCommand": "/home/greg/.android/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 /home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/x86/libmain.so",
       "abi": "x86",
       "output": "/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/x86/libmain.so"
     }
