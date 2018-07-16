@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Widget_Systems/GTK+/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Widget_Systems/GTK+/*.cpp)
 override LDLIBS += -lgthread-2.0
 
 ifeq ($(PLATFORM), xlib)

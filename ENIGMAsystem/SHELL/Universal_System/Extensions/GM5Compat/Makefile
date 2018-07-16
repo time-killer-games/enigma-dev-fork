@@ -1,1 +1,1 @@
-SOURCES += $(wildcard Universal_System/Extensions/GM5Compat/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Universal_System/Extensions/GM5Compat/*.cpp)

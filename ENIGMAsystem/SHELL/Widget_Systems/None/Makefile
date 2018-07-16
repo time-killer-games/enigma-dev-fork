@@ -1,1 +1,1 @@
-SOURCES += $(wildcard Widget_Systems/None/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Widget_Systems/None/*.cpp)

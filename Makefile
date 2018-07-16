@@ -18,6 +18,10 @@ all: liblodepng libProtocols libEGM ENIGMA emake test-runner .FORCE
 Game: liblodepng .FORCE
 	$(MAKE) -C ENIGMAsystem/SHELL
 
+AndroidGame: .FORCE
+	#EROOT=$(PWD) NDK_OUT=$(WORKDIR) ndk-build V=1 -C android-project/app/jni/
+	ANDROID_HOME=/home/greg/.android $(MAKE) -C android-project/
+
 clean-game: .FORCE
 	$(MAKE) -C ENIGMAsystem/SHELL clean
 

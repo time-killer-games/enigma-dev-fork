@@ -1,0 +1,23 @@
+{
+  "buildFiles": [
+    "/home/greg/enigma-dev/android-project/app/jni/Android.mk",
+    "/home/greg/enigma-dev/android-project/app/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/home/greg/.android/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 clean"
+  ],
+  "libraries": {
+    "main-debug-armeabi-v7a": {
+      "artifactName": "main",
+      "buildCommand": "/home/greg/.android/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 /home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libmain.so",
+      "abi": "armeabi-v7a",
+      "output": "/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libmain.so"
+    },
+    "SDL2-debug-armeabi-v7a": {
+      "artifactName": "SDL2",
+      "buildCommand": "/home/greg/.android/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/greg/enigma-dev/android-project/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/greg/enigma-dev/android-project/app/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/lib APP_PLATFORM\u003dandroid-14 /home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libSDL2.so",
+      "abi": "armeabi-v7a",
+      "output": "/home/greg/enigma-dev/android-project/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libSDL2.so"
+    }
+  }
+}

@@ -1,1 +1,1 @@
-SOURCES += $(wildcard Bridges/iPhone-OpenGLES/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Bridges/iPhone-OpenGLES/*.cpp)

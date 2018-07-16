@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Networking_Systems/BerkeleySockets/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Networking_Systems/BerkeleySockets/*.cpp)
 ifeq ($(PLATFORM), Win32)
 	override LDLIBS += -lws2_32
 else

@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Networking_Systems/Asynchronous/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Networking_Systems/Asynchronous/*.cpp)
 ifeq ($(PLATFORM), Win32)
 	override LDLIBS += -lws2_32
 else

@@ -1,7 +1,7 @@
 #ifndef E_SDL_EVENT_HANDLER_H
 #define E_SDL_EVENT_HANDLER_H
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 namespace enigma {
 

@@ -1,1 +1,1 @@
-SOURCES += $(wildcard Bridges/SDL-OpenGL/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Bridges/SDL-OpenGL/*.cpp)

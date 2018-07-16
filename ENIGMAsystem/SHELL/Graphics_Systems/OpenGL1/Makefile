@@ -1,4 +1,4 @@
-SOURCES += $(wildcard Graphics_Systems/OpenGL1/*.cpp) $(wildcard Graphics_Systems/General/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Graphics_Systems/OpenGL1/*.cpp) $(wildcard Graphics_Systems/General/*.cpp)
 
 ifeq ($(TARGET-PLATFORM), Windows)
 	override CXXFLAGS += -DGLEW_STATIC

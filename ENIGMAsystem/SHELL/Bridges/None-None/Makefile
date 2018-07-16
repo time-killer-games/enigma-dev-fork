@@ -1,1 +1,1 @@
-SOURCES += $(wildcard Bridges/None-None/*.cpp)
+SOURCES += $(wildcard $(ESHELL)Bridges/None-None/*.cpp)
