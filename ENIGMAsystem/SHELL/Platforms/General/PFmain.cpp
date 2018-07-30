@@ -1,6 +1,8 @@
 #include "PFmain.h"
 
 #include "Platforms/platforms_mandatory.h"
+#include "Platforms/General/PFwindow.h"
+#include "Universal_System/roomsystem.h"
 
 #include <unistd.h>  //getcwd, usleep
 
@@ -39,10 +41,6 @@ int gameWait() {
 
 void set_room_speed(int rs) { current_room_speed = rs; }
 
-unsigned long get_timer() {  // microseconds since the start of the game
-  return current_time_mcs;
-}
-
 void set_program_args(int argc, char** argv) {
   parameters = new std::string[argc];
   parameterc = argc;
@@ -71,6 +69,10 @@ int enigma_main(int argc, char** argv) {
   showWindow();
 
   while (!game_isending) {
+    if (!((std::string)enigma_user::room_caption).empty())
+      enigma_user::window_set_caption(enigma_user::room_caption);
+    update_mouse_variables();
+
     if (updateTimer() != 0) continue;
     if (handleEvents() != 0) break;
     if (gameWait() != 0) continue;

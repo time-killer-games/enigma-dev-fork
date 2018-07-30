@@ -15,21 +15,11 @@
 *** with this code. If not, see <http://www.gnu.org/licenses/>
 **/
 
-#include "Graphics_Systems/graphics_mandatory.h"
-#include "Graphics_Systems/General/GScolors.h"
-
-#include "Platforms/General/PFwindow.h"
+#include "Widget_Systems/widgets_mandatory.h"
 #include "Platforms/SDL/Window.h"
-
-#include "Universal_System/roomsystem.h" // room_caption, update_mouse_variables
+#include "Bridges/General/GLinit.h"
 
 #include <SDL.h>
-
-#include "glad.h"
-
-#include <iostream>
-#include <cstring>
-#include <stdio.h>
 
 namespace enigma {
 
@@ -45,15 +35,18 @@ bool initGameWindow() {
 }
 
 void EnableDrawing(void*) {
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, GL_CONTEXT_PROFILE);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GL_CONTEXT_MAJOR_VERSION);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GL_CONTEXT_MINOR_VERSION);
-    SDL_GL_SetSwapInterval(0);
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-    context = SDL_GL_CreateContext(windowHandle);
-    renderer = SDL_CreateRenderer(windowHandle, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
-    gladLoadGLLoader(SDL_GL_GetProcAddress);
+  if (graphics_is_gles)
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+  else
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, gl_major);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, gl_minor);
+  SDL_GL_SetSwapInterval(0);
+  SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+  context = SDL_GL_CreateContext(windowHandle);
+  renderer = SDL_CreateRenderer(windowHandle, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+  gl_init();
 }
 
 void DisableDrawing(void*) {
@@ -63,21 +56,20 @@ void DisableDrawing(void*) {
 }
 
 namespace enigma_user {
-  // Don't know where to query this on XLIB, just defaulting it to 2,4,and 8 samples all supported, Windows puts it in EnableDrawing
-  int display_aa = 14;
 
-  void set_synchronization(bool enable) {
-    SDL_GL_SetSwapInterval(enable);
-  }
+// Don't know where to query this on XLIB, just defaulting it to 2,4,and 8 samples all supported, Windows puts it in EnableDrawing
+int display_aa = 14;
 
-  void display_reset(int samples, bool vsync) {
-    set_synchronization(vsync);
-  }
+void set_synchronization(bool enable) {
+  SDL_GL_SetSwapInterval(enable);
+}
 
-  void screen_refresh() {
-    SDL_GL_SwapWindow(enigma::windowHandle);
-    window_set_caption(room_caption);
-    enigma::update_mouse_variables();
-  }
+void display_reset(int samples, bool vsync) {
+  set_synchronization(vsync);
+}
+
+void screen_refresh() {
+  SDL_GL_SwapWindow(enigma::windowHandle);
+}
 
 }

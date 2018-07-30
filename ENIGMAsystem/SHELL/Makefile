@@ -99,7 +99,9 @@ clean:
 cleandep:
 	$(RM) $(CLEANDEPS)
 
-SOURCES := $(wildcard *.cpp) $(wildcard Platforms/General/*.cpp)
+SHADER_CPP := $(subst //,/,/$(subst :,,$(CODEGEN)/$(GRAPHICS)_shader.cpp))
+
+SOURCES := $(wildcard *.cpp) $(wildcard Platforms/General/*.cpp) $(SHADER_CPP)
 include $(addsuffix /Makefile,$(SYSTEMS) $(EXTENSIONS))
 include Bridges/$(PLATFORM)-$(GRAPHICS)/Makefile
 
@@ -127,12 +129,16 @@ compile_game: cleandep $(OBJECTS) $(RCFILES) $(RESOURCEBINARY) $(DEPENDENCIES)
 	$(CXX) $(LDFLAGS) -o "$(OUTPUTNAME)" $(OBJECTS) $(RESOURCEBINARY) $(LDLIBS)
 	@echo Built to "$(OUTPUTNAME)"
 
+#We want to update shader cpp when there are any changes to generator script or any of the files we concat
+$(SHADER_CPP): ./shader_build.sh $(SHADER_VERSION) $(VERTEX_SHADER_PREFIX) $(VERTEX_SHADER) $(FRAGMENT_SHADER_PREFIX) $(FRAGMENT_SHADER)
+	./shader_build.sh $(SHADER_CPP) $(SHADER_VERSION) $(VERTEX_SHADER_PREFIX) $(VERTEX_SHADER) $(FRAGMENT_SHADER_PREFIX) $(FRAGMENT_SHADER)
+
 # GCC will figure out dependencies and write out makefile rules in %.d when they change
 # -MMD outputs dependencies to %.d as a side effect of compilation, ignoring system headers
 # -MP gives phony rules for non-target files, avoiding problems with missing files
 $(OBJDIR)/%.o $(OBJDIR)/%.d: %.cpp | $(OBJDIRS)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(INCLUDES) -MMD -MP -c -o $(OBJDIR)/$*.o $<
-	
+
 $(OBJDIR)/shared/%.o $(OBJDIR)/%.d: $(SHARED_SRC_DIR)/%.cpp | $(OBJDIRS)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(INCLUDES) -MMD -MP -c -o $(OBJDIR)/shared/$*.o $<
 
@@ -151,7 +157,7 @@ GENERATED_FILE:
 $(OBJDIR)/%.rc: %.rc
 	$(WINDRES) -o $@ -I. -I$(WORKDIR) $^ -O rc $(RCFLAGS)
 
-$(OBJDIRS):
+$(OBJDIRS): $(SHADER_CPP)
 	$(MKDIR) -p $@
 
 ifneq ($(MAKECMDGOALS),clean)

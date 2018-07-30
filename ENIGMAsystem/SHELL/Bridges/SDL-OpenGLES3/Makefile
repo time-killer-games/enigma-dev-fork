@@ -1,2 +1,1 @@
-override CXXFLAGS += -IGraphics_Systems/OpenGL3/glad -DGL_CONTEXT_MAJOR_VERSION=3 -DGL_CONTEXT_MINOR_VERSION=0 -DGL_CONTEXT_PROFILE=SDL_GL_CONTEXT_PROFILE_ES -DgladLoadGLLoader=gladLoadGLES2Loader
-SOURCES += $(wildcard $(ESHELL)Bridges/SDL-OpenGL/*.cpp)
+include $(ESHELL)Bridges/SDL-OpenGLES/Makefile

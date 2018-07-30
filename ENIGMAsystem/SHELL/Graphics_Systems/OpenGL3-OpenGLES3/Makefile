@@ -1,0 +1,8 @@
+override CXXFLAGS += -I$(ESHELL)Graphics_Systems/OpenGL3-OpenGLES3/
+SOURCES += $(wildcard $(ESHELL)Graphics_Systems/OpenGL3-OpenGLES3/*.cpp)
+
+SHADER_FOLDER := $(ESHELL)Graphics_Systems/OpenGL3-OpenGLES3/shaders
+VERTEX_SHADER_PREFIX := $(SHADER_FOLDER)/vertex_shader_prefix.glsl
+VERTEX_SHADER := $(SHADER_FOLDER)/vertex_shader.glsl
+FRAGMENT_SHADER_PREFIX := $(SHADER_FOLDER)/fragment_shader_prefix.glsl
+FRAGMENT_SHADER := $(SHADER_FOLDER)/fragment_shader.glsl

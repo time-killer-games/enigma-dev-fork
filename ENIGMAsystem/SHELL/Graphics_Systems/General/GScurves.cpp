@@ -14,23 +14,21 @@
 *** You should have received a copy of the GNU General Public License along
 *** with this code. If not, see <http://www.gnu.org/licenses/>
 **/
+#include "GScolors.h"
+#include "GScurves.h"
+#include "GSprimitives.h"
 
 #include <stack>
 #include <vector>
 #include <math.h>
 
-#include "OpenGLHeaders.h"
-#include "GScolors.h"
-#include "GScurves.h"
-#include "GSprimitives.h"
-
-
 namespace enigma{
     extern unsigned char currentcolor[4];
 }
 
+namespace {
 int pr_curve_detail = 20;
-int pr_curve_mode = GL_LINE_STRIP;
+int pr_curve_mode = enigma_user::pr_linestrip;
 int pr_spline_points = 0;
 gs_scalar pr_curve_width = 1;
 
@@ -41,6 +39,7 @@ struct splinePoint {
 typedef std::vector< splinePoint > spline;
 static std::stack< spline*, std::vector<spline*> > startedSplines;
 static std::stack< int > startedSplinesMode;
+}
 
 namespace enigma_user
 {
