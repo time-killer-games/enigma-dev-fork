@@ -8,21 +8,21 @@ SDL_PATH := ../SDL
 
 
 # Default Shits
-EROOT := $(shell dirname $(shell dirname $(PWD)))/
+EROOT := C:/Users/Owner/Desktop/enigma-dev/
 GMODE ?= Debug
-GRAPHICS ?= OpenGLES3
+GRAPHICS ?= OpenGLES2
 AUDIO ?= None
 COLLISION ?= None
 WIDGETS ?= None
 NETWORKING ?= None
 PLATFORM ?= SDL
-CODEGEN ?= /tmp/ENIGMA
+CODEGEN ?= C:/Users/Owner/Desktop/enigma-dev/
 
 ESHELL := $(EROOT)ENIGMAsystem/SHELL/
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/$(SDL_PATH)/include $(ESHELL) $(EROOT)shared/lodepng
 
-SOURCES := $(wildcard $(ESHELL)*.cpp) $(wildcard $(ESHELL)Platforms/General/*.cpp) $(EROOT)/shared/lodepng/lodepng.cpp
+SOURCES := $(wildcard $(ESHELL)*.cpp) $(wildcard $(ESHELL)Platforms/General/*.cpp) $(EROOT)/shared/lodepng/lodepng.cpp $(CODEGEN)/$(GRAPHICS)_shader.cpp
 SYSTEMS := $(ESHELL)Platforms/$(PLATFORM) $(ESHELL)Graphics_Systems/$(GRAPHICS) $(ESHELL)Audio_Systems/$(AUDIO) $(ESHELL)Collision_Systems/$(COLLISION) $(ESHELL)Widget_Systems/$(WIDGETS) $(ESHELL)Networking_Systems/$(NETWORKING) $(ESHELL)Universal_System
 
 include $(addsuffix /Makefile,$(SYSTEMS) $(EXTENSIONS))

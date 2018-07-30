@@ -15,7 +15,7 @@ void Gamepad::clear() {
 
 void Gamepad::push() {
   for (unsigned i = 0; i < enigma_user::gp_padr; ++i) {
-    state.lastButtonStatus[i] = state.buttonStatus[i];
+    //state.lastButtonStatus[i] = state.buttonStatus[i];
   }
 }
 

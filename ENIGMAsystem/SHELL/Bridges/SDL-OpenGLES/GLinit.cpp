@@ -1,6 +1,6 @@
 #include "Bridges/General/GLinit.h"
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 GLenum GL_BGRA = GL_BGRA_EXT;
 bool graphics_is_gles = true;

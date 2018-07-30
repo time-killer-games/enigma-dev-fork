@@ -123,15 +123,15 @@ int draw_getpixel(int x,int y)
   oglmgr->ReadPixels();
   #if defined __BIG_ENDIAN__ || defined __BIG_ENDIAN
     int ret;
-    glReadPixels(x,y,1,1,GL_RGB,GL_UNSIGNED_BYTE,&ret);
+    //glReadPixels(x,y,1,1,GL_RGB,GL_UNSIGNED_BYTE,&ret);
     return ret;
   #elif defined __LITTLE_ENDIAN__ || defined __LITTLE_ENDIAN
     int ret;
-    glReadPixels(x,y,1,1,GL_BGR,GL_UNSIGNED_BYTE,&ret);
+    //glReadPixels(x,y,1,1,GL_BGR,GL_UNSIGNED_BYTE,&ret);
     return ret>>8;
   #else
     unsigned char rgb[3];
-    glReadPixels(x,y,1,1,GL_RGB,GL_UNSIGNED_BYTE,&rgb);
+    //glReadPixels(x,y,1,1,GL_RGB,GL_UNSIGNED_BYTE,&rgb);
     return rgb[0] | rgb[1] << 8 | rgb[2] << 16;
   #endif
 }
@@ -156,15 +156,15 @@ int draw_getpixel_ext(int x,int y)
   oglmgr->ReadPixels();
   #if defined __BIG_ENDIAN__ || defined __BIG_ENDIAN
     int ret;
-    glReadPixels(x,y,1,1,GL_RGBA,GL_UNSIGNED_BYTE,&ret);
+    //glReadPixels(x,y,1,1,GL_RGBA,GL_UNSIGNED_BYTE,&ret);
     return ret;
   #elif defined __LITTLE_ENDIAN__ || defined __LITTLE_ENDIAN
     int ret;
-    glReadPixels(x,y,1,1,GL_RGBA,GL_UNSIGNED_BYTE,&ret);
+    //glReadPixels(x,y,1,1,GL_RGBA,GL_UNSIGNED_BYTE,&ret);
     return ret>>8;
   #else
     unsigned char rgba[4];
-    glReadPixels(x,y,1,1,GL_RGBA,GL_UNSIGNED_BYTE,&rgba);
+    //glReadPixels(x,y,1,1,GL_RGBA,GL_UNSIGNED_BYTE,&rgba);
     return rgba[0] | rgba[1] << 8 | rgba[2] << 16 | rgba[3] << 24;
   #endif
 }
