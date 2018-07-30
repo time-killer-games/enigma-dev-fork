@@ -198,7 +198,7 @@ int lang_CPP::compile_writeRoomData(EnigmaStruct* es, parsed_object *EGMglobal, 
     {
       wto << "variant room_"<< es->rooms[i].id <<"_instancecreate_" << it->first << "()\n{\n  ";
       if (mode == emode_debug) {
-        wto << "enigma::debug_scope $current_scope(\"'instance creation' for instance '" << it->first << "'\");\n  ";
+        wto << "enigma::debug_scope enigma_current_debug_scope(\"'instance creation' for instance '" << it->first << "'\");\n  ";
       }
 
       std::string codeOvr;
@@ -222,7 +222,7 @@ int lang_CPP::compile_writeRoomData(EnigmaStruct* es, parsed_object *EGMglobal, 
     {
       wto << "variant room_"<< es->rooms[i].id <<"_instanceprecreate_" << it->first << "()\n{\n  ";
       if (mode == emode_debug) {
-        wto << "enigma::debug_scope $current_scope(\"'instance preCreation' for instance '" << it->first << "'\");\n  ";
+        wto << "enigma::debug_scope enigma_current_debug_scope(\"'instance preCreation' for instance '" << it->first << "'\");\n  ";
       }
 
       std::string codeOvr;
@@ -244,7 +244,7 @@ int lang_CPP::compile_writeRoomData(EnigmaStruct* es, parsed_object *EGMglobal, 
 
     wto << "variant roomprecreate" << es->rooms[i].id << "()\n{\n";
     if (mode == emode_debug) {
-      wto << "  enigma::debug_scope $current_scope(\"'room preCreation' for room '" << es->rooms[i].name << "'\");\n";
+      wto << "  enigma::debug_scope enigma_current_debug_scope(\"'room preCreation' for room '" << es->rooms[i].name << "'\");\n";
     }
     wto << "  ";
 
@@ -259,7 +259,7 @@ int lang_CPP::compile_writeRoomData(EnigmaStruct* es, parsed_object *EGMglobal, 
 
     wto << "variant roomcreate" << es->rooms[i].id << "()\n{\n";
     if (mode == emode_debug) {
-      wto << "  enigma::debug_scope $current_scope(\"'room creation' for room '" << es->rooms[i].name << "'\");\n";
+      wto << "  enigma::debug_scope enigma_current_debug_scope(\"'room creation' for room '" << es->rooms[i].name << "'\");\n";
     }
     parsed_event& ev = pr->events[0];
     print_to_file(ev.code, ev.synt, ev.strc, ev.strs, 2, wto);
