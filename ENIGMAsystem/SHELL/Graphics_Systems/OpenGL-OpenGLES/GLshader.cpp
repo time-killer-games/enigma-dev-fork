@@ -690,10 +690,31 @@ void glsl_attribute_set(int location, int size, int type, bool normalize, int st
 //Internal functions - they do less error checking and don't call batch flush to stop recursion in GL3ModelStruct::Draw
 namespace enigma
 {
+  void matrix_transpose_3fv(float mat[9], const float a[9]) {
+    float transposition[9] = {
+      a[0], a[3], a[6],
+      a[1], a[4], a[7],
+      a[2], a[5], a[8],
+    };
+    memcpy(mat, transposition, sizeof(transposition));
+  }
+
+  void matrix_transpose_4fv(float mat[16], const float a[16]) {
+    float transposition[16] = {
+      a[0], a[4], a[8],  a[12],
+      a[1], a[5], a[9],  a[13],
+      a[2], a[6], a[10], a[14],
+      a[3], a[7], a[11], a[15],
+    };
+    memcpy(mat, transposition, sizeof(transposition));
+  }
+
   void glsl_uniform_matrix3fv_internal(int location, int size, const float *matrix){
     get_uniform(it,location,9);
     if (std::equal(it->second.data.begin(), it->second.data.end(), matrix, enigma::UATypeFComp) == false){
-      glUniformMatrix3fv(location, size, true, matrix);
+      float transposition[9];
+      matrix_transpose_3fv(transposition, matrix);
+      glUniformMatrix3fv(location, size, false, transposition);
       memcpy(&it->second.data[0], &matrix[0], it->second.data.size() * sizeof(enigma::UAType));
     }
   }
@@ -701,7 +722,9 @@ namespace enigma
   void glsl_uniform_matrix4fv_internal(int location, int size, const float *matrix){
     get_uniform(it,location,16);
     if (std::equal(it->second.data.begin(), it->second.data.end(), matrix, enigma::UATypeFComp) == false){
-      glUniformMatrix4fv(location, size, true, matrix);
+      float transposition[16];
+      matrix_transpose_4fv(transposition, matrix);
+      glUniformMatrix4fv(location, size, false, transposition);
       memcpy(&it->second.data[0], &matrix[0], it->second.data.size() * sizeof(enigma::UAType));
     }
   }

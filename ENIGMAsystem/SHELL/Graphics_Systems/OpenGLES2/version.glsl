@@ -1,2 +1,2 @@
-#version 100 ES
+#version 100
 precision mediump float;
