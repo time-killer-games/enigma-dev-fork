@@ -386,7 +386,8 @@ int lang_CPP::compile(EnigmaStruct *es, const char* exe_filename, int mode)
   wto << license;
 
   wto << "namespace enigma_user {\n";
-  wto << "const char *resource_file_path=\"" << compilerInfo.exe_vars["RESOURCES"] << "\";\n";
+  //wto << "const char *resource_file_path=\"" << compilerInfo.exe_vars["RESOURCES"] << "\";\n";
+  wto << "const char *resource_file_path=\"" << "C:/Users/Owner/Desktop/enigma-dev/android-project/app/src/main/res/raw/fumdies" << "\";\n";
   wto << "}\n";
 
   stringstream ss;
@@ -608,7 +609,7 @@ wto << "namespace enigma_user {\nstring shader_get_name(int i) {\n switch (i) {\
   idpr("Starting compile (This may take a while...)", 30);
 
   string make = compilerInfo.make_vars["MAKEFLAGS"];
-  
+
   if (compilerInfo.target_platform == "Android")
     make += "AndroidGame ";
   else

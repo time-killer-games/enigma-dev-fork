@@ -20,7 +20,7 @@ Game: liblodepng .FORCE
 
 AndroidGame: .FORCE
 	#EROOT=$(PWD) NDK_OUT=$(WORKDIR) ndk-build V=1 -C android-project/app/jni/
-	ANDROID_HOME=/home/greg/.android $(MAKE) -C android-project/
+	JAVA_HOME="$(JAVAHOME)" ANDROID_HOME="$(ANDROIDHOME)" $(MAKE) -C android-project/
 
 clean-game: .FORCE
 	$(MAKE) -C ENIGMAsystem/SHELL clean
