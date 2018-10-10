@@ -8,6 +8,8 @@
 
 namespace enigma {
 
+std::vector<std::function<void()> > extension_update_hooks;
+
 bool game_isending = false;
 int game_return = 0;
 int pausedSteps = 0;
@@ -59,13 +61,13 @@ int enigma_main(int argc, char** argv) {
     return -4;
   }
 
+  initTimer();
   initInput();
 
   EnableDrawing(nullptr);
 
   // Call ENIGMA system initializers; sprites, audio, and what have you
   initialize_everything();
-  initTimer();
   showWindow();
 
   while (!game_isending) {
@@ -76,6 +78,11 @@ int enigma_main(int argc, char** argv) {
     if (updateTimer() != 0) continue;
     if (handleEvents() != 0) break;
     if (gameWait() != 0) continue;
+
+    // if any extensions need updated, update them now
+    // just before we fire off user events like step
+    for (auto update_hook : extension_update_hooks)
+      update_hook();
 
     ENIGMA_events();
     handleInput();
