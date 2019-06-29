@@ -34,7 +34,8 @@ std::string filename_absolute(std::string fname) {
   if (file_exists(fname) || directory_exists(fname)) {
     char rpath[PATH_MAX];
     char *ptr = realpath(fname.c_str(), rpath);
-    if (ptr != NULL) { return rpath; }
+    if (ptr != NULL) 
+      return ptr;
   } return "";
 }
 
